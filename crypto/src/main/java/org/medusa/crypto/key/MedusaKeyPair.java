@@ -1,9 +1,11 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 package org.medusa.crypto.key;
 
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.medusa.crypto.key.interfaces.IMedusaKeyPair;
-import org.medusa.node.interfaces.MedusaKeyPairFactory;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

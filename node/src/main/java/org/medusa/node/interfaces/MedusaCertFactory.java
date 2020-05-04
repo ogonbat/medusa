@@ -1,3 +1,6 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 package org.medusa.node.interfaces;
 
 public interface MedusaCertFactory {

@@ -37,7 +37,7 @@ public class CertIntegrationTest {
         cert.setIssuer(caCert.getSubject());
         cert.setAuthorityKeyPair(keyPairCA);
         cert.buildFromCSR(csrCert);
-        Assert.assertEquals(true, caCert.verifyChain(keyPairCA, cert));
+        Assert.assertEquals(true, caCert.verifyChain(cert));
 
     }
 }

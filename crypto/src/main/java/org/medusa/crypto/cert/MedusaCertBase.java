@@ -1,3 +1,6 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 package org.medusa.crypto.cert;
 
 import org.bouncycastle.asn1.x500.X500Name;
@@ -21,8 +24,6 @@ import org.bouncycastle.util.io.pem.PemReader;
 import org.bouncycastle.util.io.pem.PemWriter;
 import org.medusa.crypto.key.MedusaKeyPair;
 import org.medusa.crypto.key.interfaces.IMedusaKeyPair;
-import org.medusa.node.interfaces.MedusaCertFactory;
-import org.medusa.node.interfaces.MedusaKeyPairFactory;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -34,6 +35,10 @@ import java.security.cert.X509Certificate;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Abstract class for {@code crypto} module that define the base for Certificate Generation
+ * this class is abstract and from that class derive the {@code MedusaCert} class, {@code MedusaCaRSA} class
+ */
 public abstract class MedusaCertBase {
     protected X509Certificate objectCert;
     protected X500Name subject;
@@ -44,6 +49,11 @@ public abstract class MedusaCertBase {
     protected PrivateKey authorityPrivateKey;
     protected int deltaYears = 10;
 
+    /**
+     * Set subject for certificate
+     * @param commonName Certificate Common Name (CN)
+     * @param organizationName Certtificate Organization Name (O)
+     */
     public void setSubject(String commonName, String organizationName) {
         subject = new X500NameBuilder()
                 .addRDN(BCStyle.CN, commonName)

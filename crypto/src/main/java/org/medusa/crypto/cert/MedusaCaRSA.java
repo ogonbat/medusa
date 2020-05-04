@@ -1,3 +1,6 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 package org.medusa.crypto.cert;
 
 import org.bouncycastle.asn1.x509.BasicConstraints;
@@ -62,7 +65,7 @@ public class MedusaCaRSA extends MedusaCertBase implements MedusaCAFactory {
         return "RSA";
     }
 
-    public Boolean verifyChain(MedusaKeyPairFactory keypair, MedusaCert cert) {
+    public Boolean verifyChain(MedusaCert cert) {
         PublicKey caPublicKey = objectCert.getPublicKey();
         try{
             if(!verify(caPublicKey)) {

@@ -1,3 +1,6 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 import org.medusa.node.interfaces.MedusaCAFactory;
 import org.medusa.node.interfaces.MedusaCSRFactory;
 import org.medusa.node.interfaces.MedusaCertFactory;

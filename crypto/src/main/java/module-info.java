@@ -1,3 +1,6 @@
+/*
+ * Copyright 2020 The Medusa Authors - Andrea Mucci
+ */
 import org.medusa.crypto.cert.MedusaCertRSA;
 import org.medusa.crypto.key.MedusaKeyPairRSA;
 import org.medusa.node.interfaces.MedusaCertFactory;
