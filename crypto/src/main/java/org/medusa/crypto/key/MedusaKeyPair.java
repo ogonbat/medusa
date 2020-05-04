@@ -13,8 +13,9 @@ import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 
-public abstract class MedusaKeyPair implements MedusaKeyPairFactory, IMedusaKeyPair {
+public abstract class MedusaKeyPair implements IMedusaKeyPair {
     protected PrivateKey privateKey;
     protected PublicKey publicKey;
     protected int size = 2048;
@@ -85,5 +86,21 @@ public abstract class MedusaKeyPair implements MedusaKeyPairFactory, IMedusaKeyP
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    public String getPrivateKeyPem() {
+        String encoded = getEncoded(privateKey);
+        return String.format("-----BEGIN PRIVATE KEY-----\n%s\n-----END PRIVATE KEY-----", encoded);
+    }
+
+    @Override
+    public String getPublicKeyPem() {
+        String encoded = getEncoded(publicKey);
+        return String.format("-----BEGIN PUBLIC KEY-----\n%s\n-----END PUBLIC KEY-----", encoded);
+    }
+
+    protected String getEncoded(Key key){
+        String encodedKey = Base64.getEncoder().encodeToString(key.getEncoded());
+        return encodedKey.replaceAll("(.{64})", "$1\n");
     }
 }

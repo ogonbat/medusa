@@ -10,4 +10,5 @@ module org.medusa.crypto {
             with MedusaKeyPairRSA;
     requires org.medusa.node;
     requires org.bouncycastle.provider;
+    requires org.bouncycastle.pkix;
 }

@@ -1,8 +1,7 @@
 package org.medusa.node.interfaces;
 
-public interface MedusaCertFactory {
+public interface MedusaCAFactory {
     void setSubject(String commonName, String organizationName);
-    void setIssuer(String commonName, String organizationName);
     String getPem();
     void load(String filename);
     void build();

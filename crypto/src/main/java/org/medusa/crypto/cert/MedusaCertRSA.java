@@ -1,4 +1,10 @@
 package org.medusa.crypto.cert;
 
-public class MedusaCertRSA extends MedusaCertBase {
+import org.medusa.node.interfaces.MedusaCertFactory;
+
+public class MedusaCertRSA extends MedusaCert implements MedusaCertFactory {
+    @Override
+    public String getCryptAlgorithm() {
+        return "RSA";
+    }
 }
