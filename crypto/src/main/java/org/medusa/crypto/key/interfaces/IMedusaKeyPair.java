@@ -3,8 +3,6 @@
  */
 package org.medusa.crypto.key.interfaces;
 
-import org.medusa.node.interfaces.MedusaKeyPairFactory;
-
 import java.security.PrivateKey;
 import java.security.PublicKey;
 

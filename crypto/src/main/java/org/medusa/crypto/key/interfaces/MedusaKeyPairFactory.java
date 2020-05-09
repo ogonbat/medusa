@@ -1,7 +1,7 @@
 /*
  * Copyright 2020 The Medusa Authors - Andrea Mucci
  */
-package org.medusa.node.interfaces;
+package org.medusa.core.interfaces;
 
 public interface MedusaKeyPairFactory {
     String getCryptAlgorithm();

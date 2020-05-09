@@ -3,20 +3,21 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "org.medusa.rpc.proto";
 
-message MedusaHeader {
+message ProtocolHeader {
   string hash = 1;
   string signature = 2;
   string timestamp = 3;
 }
-message MedusaRequest {
-  MedusaHeader headers = 1;
+message ProtocolRequest {
+  ProtocolHeader headers = 1;
   string version = 2;
   string namespace = 3;
   string action = 4;
   string body = 5;
-}
-
-message MedusaResponse {
-  int32 code = 1;
-  string body = 3;
+  int32 code = 6;
+  Type type = 7;
+  enum Type {
+    REQUEST = 0;
+    RESPONSE = 1;
+  }
 }

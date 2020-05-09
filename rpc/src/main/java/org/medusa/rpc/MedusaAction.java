@@ -1,9 +1,6 @@
 package org.medusa.rpc;
 
 import org.medusa.rpc.interfaces.IMedusaController;
-import org.medusa.rpc.proto.MedusaRequest;
-import org.medusa.rpc.proto.MedusaResponse;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

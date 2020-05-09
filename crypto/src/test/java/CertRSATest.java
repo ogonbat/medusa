@@ -5,11 +5,8 @@ import org.junit.runners.JUnit4;
 import org.medusa.crypto.cert.MedusaCertRSA;
 import org.medusa.crypto.key.MedusaKeyPairRSA;
 
-import java.util.logging.Logger;
-
 @RunWith(JUnit4.class)
 public class CertRSATest {
-    public static final Logger logger = Logger.getLogger("Cert Test Class");
     @Test
     public void generate_certificate(){
         // generate cert Keypair

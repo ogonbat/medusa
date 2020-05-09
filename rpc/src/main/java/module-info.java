@@ -1,15 +1,12 @@
-import org.medusa.node.interfaces.MedusaRpcFactory;
-import org.medusa.rpc.MedusaServer;
+import org.medusa.rpc.interfaces.IMedusaController;
 
-module org.medusa.rpc {
-    provides MedusaRpcFactory
-            with MedusaServer;
-    requires org.medusa.node;
-    requires grpc.api;
+module medusa.rpc {
+    uses IMedusaController;
     requires java.logging;
     requires com.google.protobuf;
-    requires grpc.stub;
     requires java.annotation;
-    requires com.google.common;
-    requires grpc.protobuf;
+    requires io.netty.all;
+    exports org.medusa.rpc;
+    exports org.medusa.rpc.interfaces;
+    exports org.medusa.rpc.annotations;
 }

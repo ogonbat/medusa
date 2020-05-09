@@ -18,8 +18,8 @@ import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
 import org.bouncycastle.pkcs.jcajce.JcaPKCS10CertificationRequestBuilder;
 import org.bouncycastle.util.io.pem.PemObjectGenerator;
 import org.bouncycastle.util.io.pem.PemWriter;
+import org.medusa.crypto.cert.interfaces.MedusaCSRFactory;
 import org.medusa.crypto.key.interfaces.IMedusaKeyPair;
-import org.medusa.node.interfaces.MedusaCSRFactory;
 
 import java.io.FileReader;
 import java.io.IOException;

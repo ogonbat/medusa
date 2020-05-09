@@ -6,38 +6,23 @@
         <artifactId>medusa</artifactId>
         <groupId>org.medusa</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.medusa.crypto</groupId>
     <artifactId>crypto</artifactId>
     <version>1.0</version>
+    <name>crypto</name>
     <dependencies>
-        <dependency>
-            <groupId>org.medusa.node</groupId>
-            <artifactId>node</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.bouncycastle</groupId>-->
-<!--            <artifactId>bcprov-jdk15on</artifactId>-->
-<!--            <version>1.65</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.bouncycastle</groupId>-->
-<!--            <artifactId>bcprov-ext-jdk15on</artifactId>-->
-<!--            <version>1.65</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcpkix-jdk15on</artifactId>
             <version>1.65</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
-    <packaging>jar</packaging>
-    <name>crypto</name>
-
 </project>

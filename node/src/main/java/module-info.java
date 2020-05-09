@@ -1,16 +1,12 @@
 /*
  * Copyright 2020 The Medusa Authors - Andrea Mucci
  */
-import org.medusa.node.interfaces.MedusaCAFactory;
-import org.medusa.node.interfaces.MedusaCSRFactory;
-import org.medusa.node.interfaces.MedusaCertFactory;
-import org.medusa.node.interfaces.MedusaKeyPairFactory;
-
-module org.medusa.node {
-    uses MedusaCertFactory;
-    uses MedusaCSRFactory;
-    uses MedusaCAFactory;
-    uses MedusaKeyPairFactory;
-    exports org.medusa.node.interfaces;
+module medusa.node {
+    requires java.logging;
+    requires medusa.rpc;
+//    uses org.medusa.core.interfaces.MedusaCertFactory;
+//    uses org.medusa.core.interfaces.MedusaCSRFactory;
+//    uses org.medusa.core.interfaces.MedusaCAFactory;
+//    uses org.medusa.core.interfaces.MedusaKeyPairFactory;
 
 }

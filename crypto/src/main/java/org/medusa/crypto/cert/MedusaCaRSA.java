@@ -14,9 +14,8 @@ import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
-import org.medusa.node.interfaces.MedusaCAFactory;
-import org.medusa.node.interfaces.MedusaCertFactory;
-import org.medusa.node.interfaces.MedusaKeyPairFactory;
+import org.medusa.crypto.cert.interfaces.MedusaCAFactory;
+
 
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;

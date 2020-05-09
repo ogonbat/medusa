@@ -3,7 +3,7 @@
  */
 package org.medusa.crypto.cert;
 
-import org.medusa.node.interfaces.MedusaCertFactory;
+import org.medusa.crypto.cert.interfaces.MedusaCertFactory;
 
 public class MedusaCertRSA extends MedusaCert implements MedusaCertFactory {
     @Override

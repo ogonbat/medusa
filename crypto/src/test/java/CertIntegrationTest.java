@@ -7,11 +7,8 @@ import org.medusa.crypto.cert.MedusaCaRSA;
 import org.medusa.crypto.cert.MedusaCertRSA;
 import org.medusa.crypto.key.MedusaKeyPairRSA;
 
-import java.util.logging.Logger;
-
 @RunWith(JUnit4.class)
 public class CertIntegrationTest {
-    public static final Logger logger = Logger.getLogger("Cert Integration Test Class");
     @Test
     public void integration_test(){
         // generate CA

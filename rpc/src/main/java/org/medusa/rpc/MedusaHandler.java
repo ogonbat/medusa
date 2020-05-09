@@ -1,32 +1,28 @@
 package org.medusa.rpc;
-
-import io.grpc.stub.StreamObserver;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.medusa.rpc.exceptions.MedusaControllerException;
-import org.medusa.rpc.proto.MedusaRequest;
-import org.medusa.rpc.proto.MedusaResponse;
-import org.medusa.rpc.proto.MedusaServerGrpc;
+import org.medusa.rpc.proto.ProtocolRequest;
 
 import java.util.logging.Logger;
 
 /**
  * Handler for the GRPC Server
  */
-public class MedusaHandler extends MedusaServerGrpc.MedusaServerImplBase {
+public class MedusaHandler extends ChannelInboundHandlerAdapter {
     private static final Logger logger = Logger.getLogger("Medusa Server Handler");
     private MedusaRouter router;
 
     @Override
-    public void endpoint(MedusaRequest request, StreamObserver<MedusaResponse> responseObserver) {
-        responseObserver.onNext(invokeAction(request));
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void status(MedusaRequest request, StreamObserver<MedusaResponse> responseObserver) {
-        responseObserver.onNext(
-                MedusaResponse.newBuilder().setCode(200).setBody("Status Ok").build()
-        );
-        responseObserver.onCompleted();
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        ProtocolRequest requestData = (ProtocolRequest) msg;
+        MedusaRequest request = new MedusaRequest();
+        request.load(requestData);
+        MedusaResponse response = invokeAction(request);
+        ChannelFuture future = ctx.writeAndFlush(response.encode());
+        future.addListener(ChannelFutureListener.CLOSE);
     }
 
     public void addRouter(MedusaRouter routerObj) {
@@ -44,15 +40,16 @@ public class MedusaHandler extends MedusaServerGrpc.MedusaServerImplBase {
             String action = request.getAction();
             MedusaAction actionMethod = router.getRoute(namespace, action);
             // check if the action is auth or not
-            if(actionMethod.auth()) {
-                // authentication is required
-                //check if the hash of the node is a peer and get the certificate
-
-            }
+//            if(actionMethod.auth()) {
+//                // authentication is required
+//                //check if the hash of the node is a peer and get the certificate
+//            }
+            return actionMethod.execute();
         } catch (MedusaControllerException e) {
-            e.printStackTrace();
+            MedusaResponse response = new MedusaResponse();
+            response.setCode(200);
+            response.setBody(e.getMessage());
+            return response;
         }
-
-        return MedusaResponse.newBuilder().setCode(200).build();
     }
 }

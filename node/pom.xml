@@ -6,13 +6,23 @@
         <artifactId>medusa</artifactId>
         <groupId>org.medusa</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.medusa.node</groupId>
     <artifactId>node</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
     <name>node</name>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>org.medusa</groupId>
+            <artifactId>rpc</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

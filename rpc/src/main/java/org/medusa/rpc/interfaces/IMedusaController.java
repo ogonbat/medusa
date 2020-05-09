@@ -1,4 +1,4 @@
-package org.medusa.rpc.interfaces;
+package org.medusa.core.interfaces;
 
 public interface IMedusaController {
 

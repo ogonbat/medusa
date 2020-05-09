@@ -1,10 +1,11 @@
 /*
  * Copyright 2020 The Medusa Authors - Andrea Mucci
  */
-package org.medusa.node.interfaces;
+package org.medusa.core.interfaces;
 
-public interface MedusaCAFactory {
+public interface MedusaCertFactory {
     void setSubject(String commonName, String organizationName);
+    void setIssuer(String commonName, String organizationName);
     String getPem();
     void load(String filename);
     void build();

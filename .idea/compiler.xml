@@ -9,7 +9,12 @@
         <module name="crypto" />
         <module name="rpc" />
         <module name="node" />
+        <module name="echo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="core" target="14" />
+      <module name="server" target="14" />
+    </bytecodeTargetLevel>
   </component>
 </project>
