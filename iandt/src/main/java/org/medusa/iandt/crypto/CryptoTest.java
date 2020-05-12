@@ -1,16 +1,31 @@
+package org.medusa.iandt.crypto;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.medusa.crypto.cert.MedusaCSR;
 import org.medusa.crypto.cert.MedusaCaRSA;
 import org.medusa.crypto.cert.MedusaCertRSA;
 import org.medusa.crypto.key.MedusaKeyPairRSA;
 
-@RunWith(JUnit4.class)
-public class CertIntegrationTest {
-    @Test
-    public void integration_test(){
+public class CryptoTest {
+    public void generate_ca() {
+        MedusaKeyPairRSA keyPairCA = new MedusaKeyPairRSA();
+        keyPairCA.build();
+        MedusaCaRSA caCert = new MedusaCaRSA();
+        caCert.setSubject("Node CA", "Default");
+        caCert.setKeyPair(keyPairCA);
+        caCert.build();
+        Assert.assertEquals(true, caCert.verify(keyPairCA));
+    }
+
+    public void generate_csr() {
+        MedusaKeyPairRSA keyPair = new MedusaKeyPairRSA();
+        keyPair.build();
+        MedusaCSR csrCert = new MedusaCSR();
+        csrCert.setKeyPair(keyPair);
+        csrCert.setSubject("Node CSR", "Default");
+        csrCert.build("RSA");
+    }
+
+    public void generate_cert() {
         // generate CA
         MedusaKeyPairRSA keyPairCA = new MedusaKeyPairRSA();
         keyPairCA.build();
@@ -35,6 +50,5 @@ public class CertIntegrationTest {
         cert.setAuthorityKeyPair(keyPairCA);
         cert.buildFromCSR(csrCert);
         Assert.assertEquals(true, caCert.verifyChain(cert));
-
     }
 }

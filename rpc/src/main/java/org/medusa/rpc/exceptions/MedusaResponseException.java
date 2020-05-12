@@ -1,4 +1,7 @@
 package org.medusa.rpc.exceptions;
 
-public class MedusaResponseException {
+public class MedusaResponseException extends Exception{
+    public MedusaResponseException(String message) {
+        super(message);
+    }
 }

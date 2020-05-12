@@ -1,7 +1,7 @@
 /*
  * Copyright 2020 The Medusa Authors - Andrea Mucci
  */
-package org.medusa.core.interfaces;
+package org.medusa.crypto.cert.interfaces;
 
 public interface MedusaCSRFactory {
     void setSubject(String commonName, String organizationName);

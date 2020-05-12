@@ -9,4 +9,6 @@ module medusa.rpc {
     exports org.medusa.rpc;
     exports org.medusa.rpc.interfaces;
     exports org.medusa.rpc.annotations;
+    exports org.medusa.rpc.client;
+    exports org.medusa.rpc.exceptions;
 }

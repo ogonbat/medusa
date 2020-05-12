@@ -10,9 +10,11 @@
         <module name="rpc" />
         <module name="node" />
         <module name="echo" />
+        <module name="iandt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="black-box" target="14" />
       <module name="core" target="14" />
       <module name="server" target="14" />
     </bytecodeTargetLevel>

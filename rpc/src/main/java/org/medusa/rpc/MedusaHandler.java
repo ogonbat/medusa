@@ -1,8 +1,5 @@
 package org.medusa.rpc;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 import org.medusa.rpc.exceptions.MedusaControllerException;
 import org.medusa.rpc.proto.ProtocolRequest;
 
@@ -11,6 +8,7 @@ import java.util.logging.Logger;
 /**
  * Handler for the GRPC Server
  */
+@ChannelHandler.Sharable
 public class MedusaHandler extends ChannelInboundHandlerAdapter {
     private static final Logger logger = Logger.getLogger("Medusa Server Handler");
     private MedusaRouter router;
@@ -44,10 +42,10 @@ public class MedusaHandler extends ChannelInboundHandlerAdapter {
 //                // authentication is required
 //                //check if the hash of the node is a peer and get the certificate
 //            }
-            return actionMethod.execute();
+            return actionMethod.execute(request);
         } catch (MedusaControllerException e) {
             MedusaResponse response = new MedusaResponse();
-            response.setCode(200);
+            response.setCode(400);
             response.setBody(e.getMessage());
             return response;
         }
